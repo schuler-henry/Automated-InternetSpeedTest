@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Henry Schuler
+# Copyright 2021, Henry Schuler, All rights reserved.
+
 startSpeedtest() {
 networkLocation=$1
 

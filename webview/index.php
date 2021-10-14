@@ -1,3 +1,8 @@
+<!--
+ Author: Henry Schuler
+ Copyright 2021, Henry Schuler, All rights reserved.
+ -->
+
 <!-- <!DOCTYPE html> -->
 <html lang="de">
 	<head>
