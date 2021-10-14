@@ -38,6 +38,9 @@ crontab -e
 * * * * * <projectpath>/src/getInternetSpeed -l <LocationID> 
 ```
 
+## Authors
+* Henry Schuler / [GitHub](https://github.com/schuler-henry) / [E-Mail](mailto:schuler.henry-it20@it.dhbw-ravensburg.de?subject=[GitHub]%20Linux%20Speedtest-Skript)
+
 ## [License](LICENSE)
 MIT License
 
