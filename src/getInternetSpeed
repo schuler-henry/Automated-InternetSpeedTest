@@ -3,7 +3,7 @@
 startSpeedtest() {
 networkLocation=$1
 
-speed=$(/home/$USER/.local/bin/speedtest)
+speed=$(/home/henry/.local/bin/speedtest)
 
 hostName=$(echo $speed | sed -n -e "s/\(.*Hosted by \)\(.*\)\( (.*\)/\2/gp")
 hostLocation=$(echo $speed | sed -n -e "s/\(.*Hosted by.*(\)\(.*\)\().*\)/\2/gp")
@@ -28,15 +28,19 @@ do
                         echo "-h        HELP"
                         echo "-l LocationID     1 = Zerlaut-Kluftern"
                         echo "                  2 = DHBW-Friedrichshafen"
-                        ;;
+                        echo "                  3 = Isny-Kastellstraße"
+			;;
                 l)
                         case $OPTARG in
-                                1)
-                                        startSpeedtest "Zerlaut-Kluftern"
-                                        ;;
-                                2)
-                                        startSpeedtest "DHBW-Friedrichshafen"
-                                        ;;
+				1)
+					startSpeedtest "Zerlaut-Kluftern"
+					;;
+				2)
+					startSpeedtest "DHBW-Friedrichshafen"
+					;;
+				3)
+					startSpeedtest "Isny-Kastellstraße"
+					;;
                         esac
                         ;;
         esac

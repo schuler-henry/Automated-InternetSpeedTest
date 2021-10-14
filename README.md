@@ -24,6 +24,9 @@ Folder | Usage
     * [restart] apache2
 
 ## How to
+### Set up script
+Before executing the script, you need to replace the username inside the speedtest command path in [line 6](src/getInternetSpeed) with your username.
+
 ### Run script in loop
 In order to run the speedtest in a loop you need to set a cronjob.
 1. Open crontab config
