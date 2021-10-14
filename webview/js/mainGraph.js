@@ -3,19 +3,32 @@
  * Copyright 2021, Henry Schuler, All rights reserved.
  */
 
-var database = document.getElementById("InternetDB");
-var valueList = database.textContent.split(';');
+// Get data for Kluftern
+var dbKluftern = document.getElementById("InternetDBKluftern");
+var valueListKluftern = dbKluftern.textContent.split(';');
 
-var valueArray = [['Date', 'Download', 'Upload']];
-for (var i = 0; i < valueList.length/4; i++) {
-    valueArray.push([new Date(valueList[i*4]), parseFloat(valueList[i*4+1]), parseFloat(valueList[i*4+2])]);
+var valueArrayKluftern = [['Date', 'Download', 'Upload']];
+for (var i = 0; i < valueListKluftern.length/4; i++) {
+    valueArrayKluftern.push([new Date(valueListKluftern[i*4]), parseFloat(valueListKluftern[i*4+1]), parseFloat(valueListKluftern[i*4+2])]);
 }
 
+// Get data for Isny
+var dbIsny = document.getElementById("InternetDBIsny");
+var valueListIsny = dbIsny.textContent.split(';');
+
+var valueArrayIsny = [['Date', 'Download', 'Upload']];
+for (var i = 0; i < valueListIsny.length/4; i++) {
+    valueArrayIsny.push([new Date(valueListIsny[i*4]), parseFloat(valueListIsny[i*4+1]), parseFloat(valueListIsny[i*4+2])]);
+}
+
+
+// Set-up google charts
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-    var data = google.visualization.arrayToDataTable(valueArray);
+    var dataKluftern = google.visualization.arrayToDataTable(valueArrayKluftern);
+    var dataIsny = google.visualization.arrayToDataTable(valueArrayIsny);
 
     var areaOptions = {
         title: '',
@@ -45,9 +58,17 @@ function drawChart() {
         }
     };
 
-    var areaChart = new google.visualization.AreaChart(document.getElementById('area_chart_div'));
-    areaChart.draw(data, areaOptions);
+    // Draw chart for Kluftern
+    var areaChartKluftern = new google.visualization.AreaChart(document.getElementById('area_chart_kluftern'));
+    areaChartKluftern.draw(dataKluftern, areaOptions);
 
-    var lineChart = new google.visualization.ScatterChart(document.getElementById('line_chart_div'));
-    lineChart.draw(data, lineOptions);
+    var scatterChartKluftern = new google.visualization.ScatterChart(document.getElementById('scatter_chart_kluftern'));
+    scatterChartKluftern.draw(dataKluftern, lineOptions);
+
+    // Draw chart for Isny#
+    var areaChartIsny = new google.visualization.AreaChart(document.getElementById('area_chart_isny'));
+    areaChartIsny.draw(dataIsny, areaOptions);
+
+    var scatterChartIsny = new google.visualization.ScatterChart(document.getElementById('scatter_chart_isny'));
+    scatterChartIsny.draw(dataIsny, lineOptions);
 }

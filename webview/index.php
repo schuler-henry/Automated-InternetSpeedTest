@@ -27,11 +27,20 @@
 			}
 			// echo("Connected successfully" . "<br>");
 
-			$result = $conn->query("SELECT Date, Download, Upload, HostPing FROM Speedtest WHERE NetworkLocation LIKE 'Zerlaut-Kluftern'");
+			$resultKluftern = $conn->query("SELECT Date, Download, Upload, HostPing FROM Speedtest WHERE NetworkLocation LIKE 'Zerlaut-Kluftern'");
+			$resultIsny = $conn->query("SELECT Date, Download, Upload, HostPing FROM Speedtest WHERE NetworkLocation LIKE 'Isny-Kastellstraße'");
 			
-			if ($result->num_rows > 0) {
-				echo("<table id='InternetDB' hidden='true'>");
-				while ($row = $result->fetch_assoc()) {
+			if ($resultKluftern->num_rows > 0) {
+				echo("<table id='InternetDBKluftern' hidden='true'>");
+				while ($row = $resultKluftern->fetch_assoc()) {
+					echo("<tr><th>" . $row["Date"] . ";</th><th>" . $row["Download"] . ";</th><th>" . $row["Upload"] . ";</th><th>" . $row["HostPing"] . ";</th></tr>");
+				}
+				echo("</table>");
+			}
+
+			if ($resultIsny->num_rows > 0) {
+				echo("<table id='InternetDBIsny' hidden='true'>");
+				while ($row = $resultIsny->fetch_assoc()) {
 					echo("<tr><th>" . $row["Date"] . ";</th><th>" . $row["Download"] . ";</th><th>" . $row["Upload"] . ";</th><th>" . $row["HostPing"] . ";</th></tr>");
 				}
 				echo("</table>");
@@ -41,7 +50,9 @@
 		?>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script src="./js/mainGraph.js"></script>
-		<div id="area_chart_div" style="width: 100%; height: 600px;"></div>
-		<div id="line_chart_div" style="width: 100%; height: 600px;"></div>
+		<div id="area_chart_kluftern" style="width: 100%; height: 600px;"></div>
+		<div id="scatter_chart_kluftern" style="width: 100%; height: 600px;"></div>
+		<div id="area_chart_isny" style="width: 100%; height: 600px;"></div>
+		<div id="scatter_chart_isny" style="width: 100%; height: 600px;"></div>
 	</body>
 </html>
