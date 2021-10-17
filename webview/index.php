@@ -13,7 +13,7 @@
 		<meta http-equiv="refresh" content="60" />
 		<h1 style="text-align: center">Speedtest WG 7/8 OK Kluftern</h1>
 		<?php
-			$servername = "localhost";
+			$servername = "192.168.42.176";
 			$username = "internet";
 			$password = "internet";
 			$dbname = "InternetDB";
