@@ -1,5 +1,5 @@
 # Automated-InternetSpeedTest
-This is a Linux shell script which automatically checks the current internet speed and saves the results into a database.
+This is a Linux (Ubuntu) shell script which automatically checks the current internet speed and saves the results into a database.
 
 ## Folder Structure
 Folder | Usage
